@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "arqZjHyiuQCtXdC4mQrkS8givz3nhl4fERIAu9Jf94DzFvKNCEZEJywNykpMRGJi9DF8r0pWafzoCAxuLyplJQ==",
+  "success": true,
+  "projectFilePath": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoApi/TodoApi.csproj",
+  "expectedPackageFiles": [
+    "/Users/kay/.nuget/packages/microsoft.aspnetcore.diagnostics.entityframeworkcore/8.0.3/microsoft.aspnetcore.diagnostics.entityframeworkcore.8.0.3.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.entityframeworkcore/8.0.3/microsoft.entityframeworkcore.8.0.3.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.3/microsoft.entityframeworkcore.abstractions.8.0.3.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.3/microsoft.entityframeworkcore.analyzers.8.0.3.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.entityframeworkcore.inmemory/8.0.3/microsoft.entityframeworkcore.inmemory.8.0.3.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.entityframeworkcore.relational/8.0.3/microsoft.entityframeworkcore.relational.8.0.3.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.caching.abstractions/8.0.0/microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.caching.memory/8.0.0/microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.logging/8.0.0/microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/Users/kay/.nuget/packages/npgsql/8.0.2/npgsql.8.0.2.nupkg.sha512",
+    "/Users/kay/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.2/npgsql.entityframeworkcore.postgresql.8.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
