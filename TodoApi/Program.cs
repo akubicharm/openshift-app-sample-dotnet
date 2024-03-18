@@ -92,7 +92,7 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
 
 var configuration = builderConfiguration;
-var connStr = configuration["DefaultConnectionString"];
+var connStr = configuration["DefaultConnection"];
 
 builder.Services.AddDbContext<TodoDb>(opt => opt.UseNpgsql(connStr));
 
