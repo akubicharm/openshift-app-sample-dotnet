@@ -13,13 +13,13 @@
 <button @onclick="AddTodoItem">Add todo</button>
 
 @* <ul>
-    @foreach (var todo in todoItems)
-    {
-        <li>
-            <input type="checkbox" @bind="todo.IsComplete" />
-            <input @bind="todo.Name" />
-        </li>
-    }
+@foreach (var todo in todoItems)
+{
+<li>
+<input type="checkbox" @bind="todo.IsComplete" />
+<input @bind="todo.Name" />
+</li>
+}
 </ul> *@
 
 
@@ -37,25 +37,28 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in todoItems)
+        @if (todoItems != null)
         {
-            <tr>
-                <td class="text-center">
-                    @if (item.IsComplete)
-                    {
-                        <span>✔</span>
-                    }
-                </td>
-                <td>@item.Name</td>
-                <td class="text-center">
-                    <button class="btn btn-warning" @onclick="@(() => EditItem(item.Id))">
-                        Edit
-                    </button>
-                    <button class="btn btn-danger" @onclick="@(async () => await DeleteItem(item.Id))">
-                        Delete
-                    </button>
-                </td>
-            </tr>
+            @foreach (var item in todoItems)
+            {
+                <tr>
+                    <td class="text-center">
+                        @if (item.IsComplete)
+                        {
+                            <span>✔</span>
+                        }
+                    </td>
+                    <td>@item.Name</td>
+                    <td class="text-center">
+                        <button class="btn btn-warning" @onclick="@(() => EditItem(item.Id))">
+                            Edit
+                        </button>
+                        <button class="btn btn-danger" @onclick="@(async () => await DeleteItem(item.Id))">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
         }
     </tbody>
 </table>
@@ -111,8 +114,8 @@
 
     private async Task DeleteItem(long id)
     {
-         await TodoService.DeleteTodoAsync(id);
-         await GetTodoItems();
+        await TodoService.DeleteTodoAsync(id);
+        await GetTodoItems();
 
     }
 
