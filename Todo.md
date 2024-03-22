@@ -51,5 +51,8 @@ todoapp=# create table todo (id serial, title varchar(128),iscomplete boolean)
 #### アプリケーションが参照するDBアクセス用のシークレット登録
 
 ```
-oc create secret generic secret-appsetting --from-literal=clientSecret='"DefaultConnection"="Host=postgresql;Port=5432;Database=todoapp;Username=postgres;Password=postgres;Trust Server Certificate=true;"'
+oc create secret generic secret-appsetting --from-literal='"DefaultConnection"="Host=postgresql;Port=5432;Database=todoapp;Username=postgres;Password=postgres;Trust Server Certificate=true;"'
 ```
+
+
+#### バックエンドアプリケーションのデプロイ
