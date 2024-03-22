@@ -34,3 +34,4 @@
 /Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoApi/bin/Debug/net8.0/Npgsql.dll
 /Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoApi/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoApi/bin/Debug/net8.0/secrets.json
+/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoApi/bin/Debug/net8.0/secrets_openshift.json
