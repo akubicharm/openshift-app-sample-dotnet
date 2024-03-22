@@ -1,24 +1,56 @@
 {
   "Files": [
     {
-      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/obj/Debug/net8.0/scopedcss/projectbundle/TodoList.bundle.scp.css",
-      "PackagePath": "staticwebassets/TodoList.bundle.scp.css"
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },
     {
-      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/wwwroot/app.css",
-      "PackagePath": "staticwebassets/app.css"
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/obj/Debug/net8.0/compressed/cflaw9c0zc.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
     },
     {
-      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/wwwroot/bootstrap/bootstrap.min.css",
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/obj/Debug/net8.0/scopedcss/bundle/TodoList.styles.css",
+      "PackagePath": "staticwebassets/TodoList.styles.css"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/appsettings.json",
+      "PackagePath": "staticwebassets/appsettings.json"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/bootstrap/bootstrap.min.css",
       "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
     },
     {
-      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/wwwroot/bootstrap/bootstrap.min.css.map",
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/bootstrap/bootstrap.min.css.map",
       "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
     },
     {
-      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/wwwroot/favicon.png",
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/favicon 2.png",
+      "PackagePath": "staticwebassets/favicon 2.png"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/favicon.png",
       "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.TodoList.Microsoft.AspNetCore.StaticWebAssets.props",

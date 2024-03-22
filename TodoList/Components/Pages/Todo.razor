@@ -1,33 +1,78 @@
 ﻿@page "/todo"
-@rendermode InteractiveServer
+@using TodoList.Models
+@using TodoList.Services
+@inject ITodoService TodoService
+@inject PersistentComponentState ApplicationState
+@inject IConfiguration Config
 
 <PageTitle>Todo</PageTitle>
 
-<h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
-
-<ul>
-    @foreach (var todo in todos)
-    {
-        <li>
-            <input type="checkbox" @bind="todo.IsDone" />
-            <input @bind="todo.Title" />
-        </li>
-    }
-</ul>
+<h1>Todo (@todoItems.Count(todo => !todo.IsComplete))</h1>
 
 <input placeholder="Something todo" @bind="newTodo" />
 <button @onclick="AddTodo">Add todo</button>
 
-@code {
-    private List<TodoItem> todos = new();
-    private string? newTodo;
+<ul>
+    @foreach (var todo in todoItems)
+    {
+        <li>
+            <input type="checkbox" @bind="todo.IsComplete" />
+            <input @bind="todo.Name" />
+        </li>
+    }
+</ul>
 
-    private void AddTodo()
+
+
+@code {
+    private TodoItem[]? todoItems = Array.Empty<TodoItem>();
+    private string? newTodo;
+    private PersistingComponentStateSubscription persistingSubscription;
+
+    protected override async Task OnInitializedAsync()
+    {
+        persistingSubscription = ApplicationState.RegisterOnPersisting(PersistData);
+
+        if (!ApplicationState.TryTakeFromJson<TodoItem[]>(nameof(todoItems), out var restoredData))
+        {
+            await GetTodoItems();
+        }
+        else
+        {
+            todoItems = restoredData!;
+        }
+    } 
+
+    private Task PersistData()
+    {
+        ApplicationState.PersistAsJson(nameof(todoItems), todoItems);
+
+        return Task.CompletedTask;
+    }
+
+    private async Task GetTodoItems()
+    {
+        todoItems = await TodoService.GetTodosAsync() ?? Array.Empty<TodoItem>();
+    }
+
+    private async Task AddTodo()
+    {
+        if (!string.IsNullOrEmpty(newTodo))
+        {
+            var addItem = new TodoItem { Name = newTodo, IsComplete = false };
+            await TodoService.PostTodoAsync(addItem);
+            @* newItemName = string.Empty; *@
+            await GetTodoItems();
+            @* editRowStyle = "none"; *@
+        }
+    }    
+    
+    @* private void AddTodo()
     {
         if (!string.IsNullOrWhiteSpace(newTodo))
         {
-            todos.Add(new TodoItem { Title = newTodo });
+            todoItems.Add(new TodoItem { Name = newTodo });
             newTodo = string.Empty;
         }
-    }
+    } *@
 }

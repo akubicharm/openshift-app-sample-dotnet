@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/TodoList.csproj": {}
+    "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/TodoList.csproj": {}
   },
   "projects": {
-    "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/TodoList.csproj": {
+    "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/TodoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/TodoList.csproj",
+        "projectUniqueName": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/TodoList.csproj",
         "projectName": "TodoList",
-        "projectPath": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/TodoList.csproj",
+        "projectPath": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/TodoList.csproj",
         "packagesPath": "/Users/kay/.nuget/packages/",
-        "outputPath": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/DotNetBlazor/TodoList/obj/",
+        "outputPath": "/Users/kay/Documents/github/akubicharm/openshift-app-sample/openshift-app-sample-dotnet/TodoList/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kay/.nuget/NuGet/NuGet.Config"
@@ -42,6 +42,37 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )",
+              "autoReferenced": true
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,15 +84,23 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[8.0.3, 8.0.3]"
+            }
+          ],
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
         }
       }
     }
