@@ -7,7 +7,7 @@ builder.Services.AddScoped<ITodoService, ClientTodoService>();
 builder.Services.AddHttpClient();
 
 builder.Services.AddScoped(sp =>
-    new HttpClient { BaseAddress = new Uri(builder.Configuration["BackendUrl"] ?? "https://localhost:5002") });
+    new HttpClient { BaseAddress = new Uri(builder.Configuration["BackendUrl"] ?? "http://todo-api") });
 
 
 
