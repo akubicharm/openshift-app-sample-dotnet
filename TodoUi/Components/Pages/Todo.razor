@@ -1,0 +1,130 @@
+﻿@page "/todo"
+@using BlazorTodo.Models
+@using BlazorTodo.Services
+@inject ITodoService TodoService
+@inject PersistentComponentState ApplicationState
+@inject IConfiguration Config
+
+<PageTitle>Todo</PageTitle>
+
+<h1>Todo</h1>
+
+<input placeholder="Something todo" @bind="newTodo" />
+<button @onclick="AddTodoItem">Add todo</button>
+
+@* <ul>
+@foreach (var todo in todoItems)
+{
+<li>
+<input type="checkbox" @bind="todo.IsComplete" />
+<input @bind="todo.Name" />
+</li>
+}
+</ul> *@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">
+                <label>
+                    Complete
+                    <input type="checkbox" @bind="getCompletedItems" @bind:after="GetTodoItems" />
+                </label>
+            </th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (todoItems != null)
+        {
+            @foreach (var item in todoItems)
+            {
+                <tr>
+                    <td class="text-center">
+                        @if (item.IsComplete)
+                        {
+                            <span>✔</span>
+                        }
+                    </td>
+                    <td>@item.Name</td>
+                    <td class="text-center">
+                        <button class="btn btn-warning" @onclick="@(() => EditItem(item.Id))">
+                            Edit
+                        </button>
+                        <button class="btn btn-danger" @onclick="@(async () => await DeleteItem(item.Id))">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+
+@code {
+    private TodoItem[]? todoItems = Array.Empty<TodoItem>();
+    private string? newTodo;
+    private PersistingComponentStateSubscription persistingSubscription;
+    private bool getCompletedItems;
+    protected override async Task OnInitializedAsync()
+    {
+        persistingSubscription = ApplicationState.RegisterOnPersisting(PersistData);
+
+        if (!ApplicationState.TryTakeFromJson<TodoItem[]>(nameof(todoItems), out var restoredData))
+        {
+            await GetTodoItems();
+        }
+        else
+        {
+            todoItems = restoredData!;
+        }
+    }
+
+    private Task PersistData()
+    {
+        ApplicationState.PersistAsJson(nameof(todoItems), todoItems);
+
+        return Task.CompletedTask;
+    }
+
+    private async Task GetTodoItems()
+    {
+        todoItems = await TodoService.GetTodosAsync() ?? Array.Empty<TodoItem>();
+    }
+
+    private async Task AddTodoItem()
+    {
+        if (!string.IsNullOrEmpty(newTodo))
+        {
+            var addItem = new TodoItem { Name = newTodo, IsComplete = false };
+            await TodoService.PostTodoAsync(addItem);
+            @* newItemName = string.Empty; *@
+            await GetTodoItems();
+            @* editRowStyle = "none"; *@
+        }
+    }
+
+    private void EditItem(long id)
+    {
+    }
+
+    private async Task DeleteItem(long id)
+    {
+        await TodoService.DeleteTodoAsync(id);
+        await GetTodoItems();
+
+    }
+
+    @* private void AddTodo()
+{
+if (!string.IsNullOrWhiteSpace(newTodo))
+{
+todoItems.Add(new TodoItem { Name = newTodo });
+newTodo = string.Empty;
+}
+} *@
+}
