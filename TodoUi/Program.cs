@@ -1,15 +1,16 @@
 using TodoUi.Components;
 using BlazorTodo.Services;
+using ChatUi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ITodoService, ClientTodoService>();
+builder.Services.AddScoped<IChatService, ClientChatService>();
+
 builder.Services.AddHttpClient();
 
 builder.Services.AddScoped(sp =>
     new HttpClient { BaseAddress = new Uri(builder.Configuration["BackendUrl"] ?? "http://todo-api") });
-
-
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

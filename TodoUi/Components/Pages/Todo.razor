@@ -1,7 +1,11 @@
 ﻿@page "/todo"
+@rendermode InteractiveServer
 @using BlazorTodo.Models
 @using BlazorTodo.Services
+@using ChatUi.Services
+@using ChatUi.Models
 @inject ITodoService TodoService
+@inject IChatService ChatService
 @inject PersistentComponentState ApplicationState
 @inject IConfiguration Config
 
@@ -9,18 +13,14 @@
 
 <h1>Todo</h1>
 
-<input placeholder="Something todo" @bind="newTodo" />
-<button @onclick="AddTodoItem">Add todo</button>
+<textarea placeholder="Something todo" @bind="newTodo" />
+<button class="btn btn-success"  @onclick="AddTodoItem">Add todo</button>
+<button class="btn btn-info" @onclick="@(async () => await AdviceItem(newTodo))">質問する
+</button>
 
-@* <ul>
-@foreach (var todo in todoItems)
-{
-<li>
-<input type="checkbox" @bind="todo.IsComplete" />
-<input @bind="todo.Name" />
-</li>
-}
-</ul> *@
+<div>
+    @summary
+</div>
 
 
 <table class="table">
@@ -55,7 +55,7 @@
                         </button>
                         <button class="btn btn-danger" @onclick="@(async () => await DeleteItem(item.Id))">
                             Delete
-                        </button>
+                        </button>                   
                     </td>
                 </tr>
             }
@@ -70,6 +70,8 @@
     private string? newTodo;
     private PersistingComponentStateSubscription persistingSubscription;
     private bool getCompletedItems;
+    private string? summary;
+
     protected override async Task OnInitializedAsync()
     {
         persistingSubscription = ApplicationState.RegisterOnPersisting(PersistData);
@@ -82,6 +84,7 @@
         {
             todoItems = restoredData!;
         }
+        summary = "";
     }
 
     private Task PersistData()
@@ -98,6 +101,7 @@
 
     private async Task AddTodoItem()
     {
+        Console.WriteLine("AddTodoItem");
         if (!string.IsNullOrEmpty(newTodo))
         {
             var addItem = new TodoItem { Name = newTodo, IsComplete = false };
@@ -119,12 +123,11 @@
 
     }
 
-    @* private void AddTodo()
-{
-if (!string.IsNullOrWhiteSpace(newTodo))
-{
-todoItems.Add(new TodoItem { Name = newTodo });
-newTodo = string.Empty;
-}
-} *@
+    private async Task AdviceItem(string? name) {
+        Console.WriteLine("AdviceItem");
+        var msg = new Message {Text=name};
+        var res = await ChatService.PostChatAsync(msg);
+        summary = res.Text;
+    }
+
 }
