@@ -14,8 +14,8 @@
 <h1>Todo</h1>
 
 <textarea placeholder="Something todo" @bind="newTodo" />
-<button class="btn btn-success"  @onclick="AddTodoItem">Add todo</button>
-<button class="btn btn-info" @onclick="@(async () => await AdviceItem(newTodo))">質問する
+<button class="btn btn-success" @onclick="AddTodoItem">Add todo</button>
+<button class="btn btn-info" @onclick="@(async () => await QuestionItem(newTodo))">質問する
 </button>
 
 <div>
@@ -55,7 +55,9 @@
                         </button>
                         <button class="btn btn-danger" @onclick="@(async () => await DeleteItem(item.Id))">
                             Delete
-                        </button>                   
+                        </button>
+                        <button class="btn btn-info" @onclick="@(async () => await AdviceItem(item.Name))">教えて</button>
+
                     </td>
                 </tr>
             }
@@ -123,9 +125,18 @@
 
     }
 
-    private async Task AdviceItem(string? name) {
+    private async Task AdviceItem(string? name)
+    {
         Console.WriteLine("AdviceItem");
-        var msg = new Message {Text=name};
+        var msg = new Message { Text = name, System = "Give advice"};
+        var res = await ChatService.PostChatAsync(msg);
+        summary = res.Text;
+    }
+
+    private async Task QuestionItem(string? name)
+    {
+        Console.WriteLine("QuestionItem");
+        var msg = new Message { Text = name};
         var res = await ChatService.PostChatAsync(msg);
         summary = res.Text;
     }

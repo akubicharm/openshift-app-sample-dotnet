@@ -10,7 +10,7 @@ builder.Services.AddScoped<IChatService, ClientChatService>();
 builder.Services.AddHttpClient();
 
 builder.Services.AddScoped(sp =>
-    new HttpClient { BaseAddress = new Uri(builder.Configuration["BackendUrl"] ?? "http://todo-api") });
+    new HttpClient { BaseAddress = new Uri(builder.Configuration["BackendUrl"] ?? "http://todo-api:8080") });
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

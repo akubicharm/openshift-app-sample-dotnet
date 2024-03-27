@@ -11,7 +11,7 @@ public class ClientChatService(HttpClient http) : IChatService
 
    public async Task<Message> PostChatAsync(Message msg)
    {
-      Console.WriteLine(uri);
+      Console.WriteLine("URI=" + uri);
       string jsonStr = JsonSerializer.Serialize(msg);
       Console.WriteLine(jsonStr);
 
@@ -19,7 +19,6 @@ public class ClientChatService(HttpClient http) : IChatService
       var res = await http.PostAsJsonAsync(uri + "chat", msg);
 
       Console.WriteLine(res);
-
       var jsonRes = await res.Content.ReadAsStringAsync();
       Console.WriteLine(jsonRes);
 
