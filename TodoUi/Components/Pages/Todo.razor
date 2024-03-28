@@ -18,10 +18,21 @@
 <button class="btn btn-info" @onclick="@(async () => await QuestionItem(newTodo))">質問する
 </button>
 
-<div>
-    @summary
-</div>
-
+<table class="table">
+    <tbody>
+        <tr>
+        <td width="10%">
+<pre>
+ __    __
+/ \\..// \
+  ( oo )  
+   \__/            
+</pre><br>「質問する」や「教えて」ボタンをすると、答えが隣にでるよ！
+</td>
+        <td class=text-center>@summary</td>
+        </tr>
+    </tbody>
+</table>
 
 <table class="table">
     <thead>
@@ -50,9 +61,10 @@
                     </td>
                     <td>@item.Name</td>
                     <td class="text-center">
+                        <!--
                         <button class="btn btn-warning" @onclick="@(() => EditItem(item.Id))">
                             Edit
-                        </button>
+                        </button> -->
                         <button class="btn btn-danger" @onclick="@(async () => await DeleteItem(item.Id))">
                             Delete
                         </button>

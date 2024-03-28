@@ -12,6 +12,8 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped(sp =>
     new HttpClient { BaseAddress = new Uri(builder.Configuration["BackendUrl"] ?? "http://todo-api:8080") });
 
+Console.WriteLine(builder.Configuration["BackendUrl"]);    
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
