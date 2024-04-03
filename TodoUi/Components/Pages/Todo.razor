@@ -140,7 +140,7 @@
     private async Task AdviceItem(string? name)
     {
         Console.WriteLine("AdviceItem");
-        var msg = new Message { Text = name, System = "Give advice"};
+        var msg = new Message { Text = name, Role = "assistant"};
         var res = await ChatService.PostChatAsync(msg);
         summary = res.Text;
     }
@@ -148,7 +148,7 @@
     private async Task QuestionItem(string? name)
     {
         Console.WriteLine("QuestionItem");
-        var msg = new Message { Text = name};
+        var msg = new Message { Text = name, Role = "teacher"};
         var res = await ChatService.PostChatAsync(msg);
         summary = res.Text;
     }
