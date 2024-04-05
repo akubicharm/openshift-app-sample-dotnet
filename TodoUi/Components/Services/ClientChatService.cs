@@ -16,13 +16,13 @@ public class ClientChatService(HttpClient http) : IChatService
       Console.WriteLine(jsonStr);
 
       //var res = await http.PostAsJsonAsync($"chat", msg);
-      var res = await http.PostAsJsonAsync(uri + "chat", msg);
+      var res = await http.PostAsJsonAsync(uri + "/chat", msg);
 
       Console.WriteLine(res);
       var jsonRes = await res.Content.ReadAsStringAsync();
       Console.WriteLine(jsonRes);
 
-      var retMsg = new Message { User = "Chat", Text = jsonRes };
+      var retMsg = new Message { User = "Chat", Text = jsonRes.Text };
       return retMsg;
 
    }
