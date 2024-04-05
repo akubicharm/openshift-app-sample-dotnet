@@ -19,7 +19,7 @@ public class ClientChatService(HttpClient http) : IChatService
       var res = await http.PostAsJsonAsync(uri + "/chat", msg);
 
       Console.WriteLine(res);
-      var jsonRes = await res.Content.ReadAsStringAsync();
+      var jsonRes = await res.Content.ReadFromJsonAsync<Message>();
       Console.WriteLine(jsonRes);
 
       var retMsg = new Message { User = "Chat", Text = jsonRes.Text };
